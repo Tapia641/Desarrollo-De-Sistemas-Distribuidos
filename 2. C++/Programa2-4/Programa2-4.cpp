@@ -2,6 +2,19 @@
 #include <iostream>
 using namespace std;
 
+void cuentaAniosBisiestos(Fecha x)
+{
+    int count = 0;
+    for (int i = 1; i < 2019; i++)
+    {
+        if (x.leapyr(i))
+        {
+            count++;
+        }
+    }
+    cout << "Total: " << count << endl;
+}
+
 int main(int argc, char const *argv[])
 {
 
@@ -16,5 +29,8 @@ int main(int argc, char const *argv[])
 
     // MUESTRA LOS DATOS PASADOS CUANDO SE INSTANCIA
     c.muestraFecha();
+
+    cuentaAniosBisiestos(a);
+
     return 0;
 }
