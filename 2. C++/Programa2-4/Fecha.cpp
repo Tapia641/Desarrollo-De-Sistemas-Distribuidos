@@ -24,8 +24,3 @@ void Fecha::muestraFecha()
     return;
 }
 
-void Fecha::convierte()
-{
-    cout << "Conversion (anio-mes-dia): " << anio * 10000 + mes * 100 + dia << endl;
-    return;
-}

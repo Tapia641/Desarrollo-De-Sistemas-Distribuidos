@@ -1,49 +1,25 @@
+#include "Fecha.h"
 #include <iostream>
 using namespace std;
 
-class Fecha{
-	private:
-		int dia;
-		int mes;
-		int anio;
-	public:
-		Fecha(int=3,int=4,int=2014);
-		void inicializaFecha(int,int,int);
-		void muestraFecha();
-		void convierte();
-};
+int main(int argc, char const *argv[])
+{
 
-Fecha::Fecha(int dd,int mm, int aaaa){
-	mes=mm;
-	dia=dd;
-	anio=aaaa;
-}
+    Fecha a, b, c(12, 9, 1973);
 
-void Fecha::inicializaFecha(int dd, int mm, int aaaa){
-	anio=aaaa;
-	mes=mm;
-	dia=dd;
-	return;
-}
+    // COMO NO RECIBE DATOS MUESTRA LOS DATOS DEFAULT EN LA CLASE
+    a.muestraFecha();
 
-void Fecha::muestraFecha(){
-	cout << "La fecha es (dia-mes-anio): " << dia << "-" << mes << "-" << anio << endl;
-	return;
-}
+    // SE LE INICIALIZAR UNOS DATOS ACTUALIZANDO LOS DEFAULT
+    b.inicializaFecha(17, 6, 2000);
+    b.muestraFecha();
 
-void Fecha::convierte(){
-	cout << "Conversion (aniomesdia): " << anio*10000+mes*100+dia << endl;
-	return;
-}  
+    // MUESTRA LOS DATOS PASADOS CUANDO SE INSTANCIA
+    c.muestraFecha();
 
-int main(){
-	Fecha a, b, c(21, 9, 1973);
-	
-	b.inicializaFecha(17, 6, 2000);
-	a.muestraFecha();
-	b.muestraFecha();
-	c.muestraFecha();
-	a.convierte();
-	b.convierte();
-	c.convierte();
+    // CONVIERTE LAS FECHAS
+    a.convierte();
+    b.convierte();
+    c.convierte();
+    return 0;
 }
