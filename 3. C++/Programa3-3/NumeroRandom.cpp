@@ -16,7 +16,7 @@ public:
 
 void NumerosRand::inicializaNumerosRand()
 {
-    vector<long> v;
+    vector<long> v(100000);
     for (unsigned long long i = 0; i < 1000000; i++)
     {
         v.push_back(i);
@@ -48,6 +48,7 @@ int main(int argc, char const *argv[])
     {
         pruebaClase();
         cout << "Probar de nuevo? (s/n)" << endl;
+        cin >> res;
     } while (res == 's' || res == 'S');
 
     return 0;
