@@ -1,5 +1,5 @@
 #include <iostream>
-#include <windows.h>
+#include <unistd.h>
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -16,11 +16,12 @@ public:
 
 void NumerosRand::inicializaNumerosRand()
 {
-    vector<long> v(100000);
-    for (unsigned long long i = 0; i < 1000000; i++)
+    unsigned int i;
+    for (unsigned int i = 0; i < numeroElementos; i++)
     {
-        v.push_back(i);
+        arreglo[i] = rand();
     }
+    return;
 }
 
 NumerosRand::NumerosRand(unsigned int num)
@@ -37,7 +38,7 @@ void pruebaClase()
     cin >> capacidad;
     NumerosRand tmp(capacidad);
     tmp.inicializaNumerosRand();
-    Sleep(7);
+    sleep(7);
 }
 
 int main(int argc, char const *argv[])
