@@ -1,6 +1,5 @@
 #include <iostream>
 #include <unistd.h>
-#include <bits/stdc++.h>
 using namespace std;
 
 class NumerosRand
