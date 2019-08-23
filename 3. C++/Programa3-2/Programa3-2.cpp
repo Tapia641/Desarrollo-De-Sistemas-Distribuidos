@@ -3,18 +3,31 @@
 #include <iostream>
 using namespace std;
 
-
 int masViejaValor(Fecha fecha1, Fecha fecha2);
 int masViejaReferencia(Fecha &fecha1, Fecha& fecha2);
+void comprueba(int opcion, unsigned long long n);
 
 int main(int argc, char* argv[]){
+	
+	if (argc < 3)
+	{
+		cout<<"USO: ./Programa3-2 [0-1] [NumeroDeCiclos]"<<endl; 
+	}else{
+		comprueba(atoi(argv[1]), atoi(argv[2]));
+	}
+
+	return 0;
+	
+}
+
+void comprueba(int opcion, unsigned long long n){
+
 	Fecha a,b;
 	int mes,dia,anio;
-	a.inicializaFecha(21, 8 , 2018);
-	b.inicializaFecha(21, 8 , 2019);
 
-	if (atoi(argv[1]) == 0){
-		for (int i = 0; i < 999999; ++i){
+	// COMPRUEBA EL PASO POR VALOR
+	if (opcion == 0){
+		for (unsigned long long i = 0; i < n; ++i){
 			mes = rand() % 12 + 1;
 			dia = rand() % 31 + 1;
 			anio = rand() % 2019 + 1;
@@ -25,8 +38,10 @@ int main(int argc, char* argv[]){
 			b.inicializaFecha(dia, mes, anio);
 			masViejaValor(a,b);
 		}
-	}else if (atoi(argv[1]) == 1){
-		for (int i = 0; i < 999999; ++i){
+	}else if (opcion == 1){
+
+		// COMPRUBEBA EL PASO POR REFERENCIA
+		for (unsigned long long i = 0; i < n; ++i){
 			mes = rand() % 12 + 1;
 			dia = rand() % 31 + 1;
 			anio = rand() % 2019 + 1;
@@ -40,17 +55,15 @@ int main(int argc, char* argv[]){
 	}
 }
 
-
-
 int masViejaValor(Fecha fecha1, Fecha fecha2){
 
 	if (fecha1.convierte() > fecha2.convierte()){
 		return 1;
 	}else if (fecha1.convierte() == fecha2.convierte()){
 		return 0;
-	}else if (fecha1.convierte() < fecha2.convierte()){
+	}else
 		return -1;
-	}
+
 }
 
 
@@ -60,7 +73,7 @@ int masViejaReferencia(Fecha &fecha1, Fecha &fecha2){
 		return 1;
 	}else if (fecha1.convierte() == fecha2.convierte()){
 		return 0;
-	}else if (fecha1.convierte() < fecha2.convierte()){
+	}else
 		return -1;
-	}
+
 }
