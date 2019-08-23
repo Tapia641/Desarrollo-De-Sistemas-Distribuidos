@@ -55,7 +55,7 @@ void comprueba(int opcion, unsigned long long n){
 		}
 	}else if (opcion == 2)
 	{
-		// COMPRUBEBA EL PASO POR REFERENCIA
+		// COMPRUBEBA EL PASO POR por puntero
 		for (unsigned long long i = 0; i < n; ++i){
 			mes = rand() % 12 + 1;
 			dia = rand() % 31 + 1;
