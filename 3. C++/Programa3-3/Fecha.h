@@ -5,6 +5,7 @@ class Fecha
 {
 private:
     int dia, mes, anio;
+    char a [100000];
 
 public:
     Fecha(int = 3, int = 4, int = 2014);

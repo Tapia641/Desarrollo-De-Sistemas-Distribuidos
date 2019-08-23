@@ -5,12 +5,14 @@ using namespace std;
 class NumerosRand
 {
 private:
-    int *arreglo;
+    long long *arreglo;
     unsigned int numeroElementos;
 
 public:
     NumerosRand(unsigned int num);
     void inicializaNumerosRand(void);
+    NumerosRand();
+
 };
 
 void NumerosRand::inicializaNumerosRand()
@@ -26,7 +28,7 @@ void NumerosRand::inicializaNumerosRand()
 NumerosRand::NumerosRand(unsigned int num)
 {
     numeroElementos = num;
-    arreglo = new int(numeroElementos);
+    arreglo = new long long(numeroElementos);
 }
 
 void pruebaClase()
@@ -40,6 +42,10 @@ void pruebaClase()
     sleep(7);
 }
 
+NumerosRand::NumerosRand(){
+      delete[] arreglo;
+}
+
 int main(int argc, char const *argv[])
 {
     char res;
@@ -48,7 +54,9 @@ int main(int argc, char const *argv[])
     {
         pruebaClase();
         cout << "Probar de nuevo? (s/n)" << endl;
+        NumerosRand();
         cin >> res;
+
     } while (res == 's' || res == 'S');
 
     return 0;
