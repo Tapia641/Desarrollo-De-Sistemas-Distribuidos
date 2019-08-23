@@ -11,6 +11,7 @@ private:
 public:
     NumerosRand(unsigned int num);
     void inicializaNumerosRand(void);
+    NumerosRand();  
 };
 
 void NumerosRand::inicializaNumerosRand()
@@ -26,7 +27,13 @@ void NumerosRand::inicializaNumerosRand()
 NumerosRand::NumerosRand(unsigned int num)
 {
     numeroElementos = num;
-    arreglo = new int(numeroElementos);
+    *arreglo = new int(numeroElementos);
+}
+
+
+NumerosRand::NumerosRand()
+{
+    delete[] arreglo;
 }
 
 void pruebaClase()
@@ -47,6 +54,7 @@ int main(int argc, char const *argv[])
     do
     {
         pruebaClase();
+        NumerosRand();
         cout << "Probar de nuevo? (s/n)" << endl;
         cin >> res;
     } while (res == 's' || res == 'S');
