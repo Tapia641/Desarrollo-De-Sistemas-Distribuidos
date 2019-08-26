@@ -1,5 +1,7 @@
-#include "rectangulo.h"
-#include "coordenada.h"
+// ARCHIVO DE INTERFAZ DE LA CLASE RECTANGULO
+
+#include "Rectangulo.h"
+#include "Coordenada.h"
 #include <iostream>
 
 using namespace std;

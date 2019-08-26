@@ -1,6 +1,8 @@
+// ARCHIVO DE IMPLEMENTACION DE LA CLASE RECTANGULO
+
 #ifndef RECTANGULO_H_
 #define RECTANGULO_H_
-#include "coordenada.h"
+#include "Coordenada.h"
 
 class Rectangulo{
 	private:

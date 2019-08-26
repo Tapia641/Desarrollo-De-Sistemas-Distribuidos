@@ -1,4 +1,6 @@
-#include "coordenada.h"
+// ARCHIVO DE INTERFAZ DE LA CLASE cOORDENADA
+
+#include "Coordenada.h"
 #include <iostream>
 
 using namespace std;
