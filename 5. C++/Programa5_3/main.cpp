@@ -6,6 +6,7 @@ int main(int argc, char const *argv[])
 {
     vector<PoligonoIrregular> ps1;
     vector<PoligonoIrregular> ps2;
+    
     // Push
     if (atoi(argv[1]) == 0)
     {
