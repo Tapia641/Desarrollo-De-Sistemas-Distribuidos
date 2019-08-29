@@ -3,6 +3,7 @@
 #include <vector>
 #include <iostream>
 using namespace std;
+#include <algorithm>
 using std::vector;
 
 PoligonoIrreg::PoligonoIrreg() : superiorIzq(0,0), inferiorDer(0,0)
@@ -29,6 +30,10 @@ void PoligonoIrreg::imprimeVertices()
 
 void PoligonoIrreg::anadeVertice(Coordenada c1){
 	vectorCoordenadas.push_back(c1);
+}
+
+std::vector<Coordenada> PoligonoIrreg::getVector(){
+	return vectorCoordenadas;
 }
 
 Coordenada PoligonoIrreg::obtieneSupIzq()

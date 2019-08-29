@@ -14,6 +14,7 @@ class PoligonoIrreg{
 		PoligonoIrreg(Coordenada c1, Coordenada c2);
 		void anadeVertice(Coordenada c1);
 		void imprimeVertices();
+		std::vector<Coordenada> getVector();
 		Coordenada obtieneSupIzq();
 		Coordenada obtieneInfDer();
 };
