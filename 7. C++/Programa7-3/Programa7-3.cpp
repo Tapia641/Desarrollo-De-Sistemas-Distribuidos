@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cstring>
 #include <string>
+#include <string.h>
 using namespace std;
 
 string generateString(){
@@ -17,29 +18,6 @@ string generateString(){
     return s;
 }
 
-void cuentaIPN(char *cadenota){
-
-    // OPCION 1
-    string temporalIPN = "";
-    for (int i = 0, j = 0; i < strlen(cadenota); i++)
-    {
-        if (j == 2)
-        {
-            temporalIPN += cadenota[i-2];
-            temporalIPN += cadenota[i-1];
-            temporalIPN += cadenota[i];
-
-            cout<<temporalIPN<<endl;
-            temporalIPN = "";
-            j = 0;
-        }
-
-        if (cadenota[i] != ' ')
-        {
-            j++;
-        }
-    }
-}
 
 void function(){
     srand (time(NULL)); 
@@ -49,6 +27,7 @@ void function(){
 
     // SOLUCION
     char *cadenota = (char*) malloc(sizeof(char)*1);
+    char IPN[] = "IPN";
     string stringVariable;
     int countIPN = 0;
 
@@ -60,20 +39,18 @@ void function(){
         char auxString[stringG.size() + 1];
         strcpy(auxString, stringG.c_str());
 
-        if (auxString == "IPN")
+        if (strcmp(auxString, "IPN ") == 0)
         {
             countIPN++;
-            cout<<"HAY IPN"<<endl;
         }
         
-
         // CONCATENAMOS DOS ARRAYS DE CHAR
         cadenota = (char*) realloc(cadenota, (strlen(cadenota) + strlen(auxString) + 1) * sizeof(char));
         memcpy(cadenota + strlen(cadenota), auxString, strlen(auxString) +1);
-        // cout<<cadenota<<endl;
     }
 
-    cout<<cadenota<<endl;
+    // cout<<cadenota<<endl;
+    cout<<countIPN<<endl;
     // cuentaIPN(cadenota);
 }
 
