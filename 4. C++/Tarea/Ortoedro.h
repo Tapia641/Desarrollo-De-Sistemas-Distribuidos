@@ -5,7 +5,9 @@ class Ortoedro
 {
 	private:
 		double Rectangulo[6];
+		Coordenada a,b;
 	public:
+		Ortoedro(Coordenada = NULL, Coordenada = NULL);
 		double obtieneVertices();
 		double obtieneArea();
 		double obtieneVolumen();
