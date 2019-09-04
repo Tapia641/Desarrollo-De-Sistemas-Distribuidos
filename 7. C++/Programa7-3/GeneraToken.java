@@ -1,8 +1,11 @@
-import java.util.*; 
-import java.util.Scanner;
+import java.util.*;
 
 public class GeneraToken{
     public static void main(String[] args) {
+        function();
+    }
+    
+    public static void function(){
         entrada = new Scanner(System.in);
         System.out.println("Ingresa N:");
         int N;
@@ -18,10 +21,7 @@ public class GeneraToken{
         }
 
         System.out.println(countIPN);
-    }
-    
-    public static void function(){
-        
+
     }
 
     public static String getToken(){
@@ -30,7 +30,7 @@ public class GeneraToken{
         Random azar =new Random();
 
         for (int i = 0; i < 3; i++) {
-            token += lista[azar.nexInt()];
+            int j = azar.nexInt();
         }
 
         return token;
