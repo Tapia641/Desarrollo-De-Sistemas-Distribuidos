@@ -21,9 +21,9 @@ string generateString(){
 
 void function(){
     srand (time(NULL)); 
-    int N;
-    cout<<"Ingresa N:"<<endl;
-    cin >> N;
+    int N = 17576;
+    // cout<<"Ingresa N:"<<endl;
+    // cin >> N;
 
     // SOLUCION
     char *cadenota = (char*) malloc(sizeof(char)*1);

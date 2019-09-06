@@ -4,8 +4,8 @@
 using namespace std;
 
 void function(){
-    unsigned long long MAX;
-    cin>>MAX;
+    unsigned long long MAX = 100000000;
+    // cin>>MAX;
     double i = 0, seno, coseno, tangente, logaritmo, raizCuadrada;
     seno = coseno = tangente = logaritmo = raizCuadrada = 0;
     while(i < MAX){
