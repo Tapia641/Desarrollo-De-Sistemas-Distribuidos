@@ -1,0 +1,6 @@
+10.1: Por que se pasa la direccion 127.0.0.1 como argumento
+R: Pasar la direccion IPv4 como un string, y lo representa como un entero,
+carga al socket la direccion de  localhost
+
+
+10.2: Ejecucion de programa
