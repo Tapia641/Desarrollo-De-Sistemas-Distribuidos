@@ -27,8 +27,8 @@ int SocketDatagrama::recibe(PaqueteDatagrama & p)
     p.inicializaPuerto(ntohs(direccionForanea.sin_port));
     p.inicializaIp(inet_ntoa(direccionForanea.sin_addr));
     //std::cout << "Mensaje recibido de: " << inet_ntoa(direccionForanea.sin_addr) << ":" << ntohs(direccionForanea.sin_port) << std::endl;
-    std::cout << "Puerto: " << p.obtienePuerto() << endl;
-    std::cout << "IP: " << p.obtieneDireccion() << endl;
+    // std::cout << "Puerto: " << p.obtienePuerto() << endl;
+    // std::cout << "IP: " << p.obtieneDireccion() << endl;
     return regreso;
 }
 
@@ -56,6 +56,9 @@ int SocketDatagrama::recibeTimeout(PaqueteDatagrama & p, time_t segundos, suseco
     p.inicializaIp(inet_ntoa(direccionForanea.sin_addr));
     //std::cout << "Mensaje recibido de: " << inet_ntoa(direccionForanea.sin_addr) << ":" << ntohs(direccionForanea.sin_port) << std::endl;
 
+    //Comienza a contar
+    setsockopt(s, SOL_SOCKET, SO_RCVTIMEO, (char *)&timeout, sizeof(timeout));
+
     int n = recvfrom(s,p.obtieneDatos(),p.obtieneLongitud(), 0, (struct sockaddr *) &direccionForanea, &addr_len);
     if (n < 0) {
 	    if (errno == EWOULDBLOCK)
@@ -65,7 +68,7 @@ int SocketDatagrama::recibeTimeout(PaqueteDatagrama & p, time_t segundos, suseco
         return -1;
 	}
 
-    std::cout << "Puerto: " << p.obtienePuerto() << endl;
-    std::cout << "IP: " << p.obtieneDireccion() << endl;
+    // std::cout << "Puerto origen: " << p.obtienePuerto() << endl;
+    // std::cout << "IP origen: " << p.obtieneDireccion() << endl;
     return n;
 }

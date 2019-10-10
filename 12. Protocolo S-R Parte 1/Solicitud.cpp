@@ -16,34 +16,45 @@ char * Solicitud::doOperation(char* IP, int puerto, int operationId, char* argum
 	msj.puerto = puerto;
 	msj.operationId = operationId;
 	//cout << "numero: " << operationId << endl;
-	cout << "Id operacion: " << msj.operationId << endl;
-	//cout << "ip: " << IP << endl;
-	cout << "ip: " << msj.IP << endl;
+	cout<< "Datos que se envian:" << endl;
+	cout << "ID " << msj.operationId << endl;
+	// cout << "ip: " << IP << endl;
+	cout << "IP: " << msj.IP << endl;
 	memcpy(msj.arguments, arguments, 100);
 	//cout << "puerto: " << puerto << endl;
-	cout << "puerto: " << msj.puerto << endl;
+	cout << "PUERTO: " << msj.puerto << endl;
 	//cout << "argumentos: " << arguments << endl;
-	cout << "argumentos: " << msj.arguments << endl;
+	cout << "Argumentos: " << msj.arguments << endl;
 
 	//SocketDatagrama socket(puerto);
 	PaqueteDatagrama paq((char*) &msj, sizeof(msj), IP, puerto);
 
 	socketlocal->envia(paq);
-	cout << "Llego a esta linea" << endl;
+	// cout << "Argumentos recibidos:" << endl;
 	PaqueteDatagrama paq1(sizeof(msj));
 	char* resultado;
+
+	//Modificacion realizada en doOperation()
 	int n  = socketlocal->recibeTimeout(paq1,2,5000);
+	int intentos = 6;
+
+	while (intentos--)
+	{
+		if (n!=-1)
+			break;
+		else
+			n  = socketlocal->recibeTimeout(paq1,2,5000);
+	}
+	//****************************************
+
 	if (n == -1)
 	{
-		cout<< "ERRRRRRRRRRRRRRRRRRRRRROR"<<endl;
-		exit(-1);
+		string errorConexion = "Se perdio la conexion.";
+		memcpy(resultado, errorConexion.c_str(), strlen(errorConexion.c_str()));
 	}else{
-		cout << n << endl;
+		resultado = paq1.obtieneDatos();
 	}
 	
-	resultado = paq1.obtieneDatos();
-
-	cout << "resultado: " << resultado << endl;
-
+	// cout << "resultado: " << resultado << endl;
 	return resultado;
 }
