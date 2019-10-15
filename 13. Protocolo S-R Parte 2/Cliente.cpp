@@ -21,23 +21,29 @@ int main(int argc, char*argv[]) {
 		
 		Solicitud cliente;
 
-			srand(time(NULL));
+		srand(time(NULL));
 
 		while (N--)
 		{
 			int n = rand ()%9 - 1;
 			// int n = 5;
 			total += n;
+
+			cout << "--------------------------------------------"<<endl;
 			cout << "Envío a mi cuenta: "<< n << endl;
 			sprintf(arreglo, "%ld", n);
 			//cout << res << endl;
 			int res2;
 			memcpy(&res2, cliente.doOperation(ip, puerto, operacion, arreglo), sizeof(int));
-			cout << "Mi cuenta tiene: " << res2 << endl;
+			cout << "Mi cuenta local: " << total << endl;
+			cout << "Mi cuenta tiene en el servidor: " << res2 << endl;
+			
 			if (total != res2){
 				cout << "Distintos valores" << endl;
 				exit(-1);
 			}
+
+			cout<<endl;
 		}
 		
 	}

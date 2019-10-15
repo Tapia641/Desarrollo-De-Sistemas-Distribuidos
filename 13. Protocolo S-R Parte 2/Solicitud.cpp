@@ -26,18 +26,18 @@ char * Solicitud::doOperation(char* IP, int puerto, int operationId, char* argum
 	//cout << "argumentos: " << arguments << endl;
 	cout << "Argumentos: " << msj.arguments << endl;
 
-
 	//SocketDatagrama socket(puerto);
 	PaqueteDatagrama paq((char*) &msj, sizeof(msj), IP, puerto);
 
-	socketlocal->envia(paq);
+	// socketlocal->envia(paq);
 	// cout << "Argumentos recibidos:" << endl;
 	PaqueteDatagrama paq1(sizeof(msj));
 	char* resultado;
 
 	//Modificacion realizada en doOperation()
-	int n  = socketlocal->recibeTimeout(paq1,2,5000);
-	int intentos = 6;
+	// int n  = socketlocal->recibeTimeout(paq1,2,5000);
+	int n = -1;
+	int intentos = 7;
 
 	while (intentos--)
 	{
@@ -48,6 +48,7 @@ char * Solicitud::doOperation(char* IP, int puerto, int operationId, char* argum
 			n  = socketlocal->recibeTimeout(paq1,2,5000);
 		}
 	}
+
 	//****************************************
 
 	if (n == -1)
@@ -58,6 +59,5 @@ char * Solicitud::doOperation(char* IP, int puerto, int operationId, char* argum
 		resultado = paq1.obtieneDatos();
 	}
 	
-	// cout << "resultado: " << resultado << endl;
 	return resultado;
 }
