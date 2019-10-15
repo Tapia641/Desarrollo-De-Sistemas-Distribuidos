@@ -24,12 +24,16 @@ int main(int argc, char*argv[]) {
 		{
 			int n = rand ()%9 - 1;
 			total += n;
+			cout << "Envío a mi cuenta"<< n << endl;
 			sprintf(arreglo, "%ld", n);
-			char *res =  cliente.doOperation(ip, puerto, operacion, arreglo);
-			//if (total != atoi(res)){
-			//	cout << "Distintos valores" << endl;
-			//	exit(-1);
-							//}
+			//cout << res << endl;
+			int res2;
+			memcpy(&res2, cliente.doOperation(ip, puerto, operacion, arreglo), sizeof(int));
+			cout << "Mi cuenta tiene: " << res2 << endl;
+			if (total != res2){
+				cout << "Distintos valores" << endl;
+				exit(-1);
+			}
 		}
 		
 	}

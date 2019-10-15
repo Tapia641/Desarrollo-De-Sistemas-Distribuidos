@@ -7,6 +7,8 @@ using namespace std;
 
 int main(int argc, char const *argv[]) {
 
+  static int nbd = 0;
+
   if (argc < 2)
   {
       perror("USO: ./Servidor PUERTO");
@@ -29,10 +31,13 @@ int main(int argc, char const *argv[]) {
       cout<< "PUERTO del cliente: " <<msj.puerto<<endl;
       cout << "Argumentos recibidos: " << msj.arguments << endl;
 
+      nbd += atoi(msj.arguments);
+      cout << "Total de ahorro: " << nbd << endl;
+
       //Se modifican los argumentos
-      string mirespuesta = "Hola soy el servidor ;D";
-      memcpy(msj.arguments,mirespuesta.c_str(), strlen(mirespuesta.c_str()));
-      memcpy(m1.arguments, msj.arguments, strlen(msj.arguments));
+      //string mirespuesta = to_string(nbd);
+      //memcpy(msj.arguments,mirespuesta.c_str(), strlen(mirespuesta.c_str()));
+      memcpy(m1.arguments, &nbd, sizeof(int));
       m1.messageType = 1;
       memcpy(m1.IP, msj.IP, 16);
       m1.puerto = msj.puerto;

@@ -17,7 +17,7 @@ public:
 private:
     SocketDatagrama *socketlocal;
     struct mensaje *palabras;
-    int nbd;
+    //static int nbd;/
 };
 
 
