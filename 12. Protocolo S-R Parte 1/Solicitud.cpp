@@ -51,6 +51,7 @@ char * Solicitud::doOperation(char* IP, int puerto, int operationId, char* argum
 	{
 		string errorConexion = "Se perdio la conexion.";
 		memcpy(resultado, errorConexion.c_str(), strlen(errorConexion.c_str()));
+		exit(-1);
 	}else{
 		resultado = paq1.obtieneDatos();
 	}

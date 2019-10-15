@@ -43,8 +43,10 @@ char * Solicitud::doOperation(char* IP, int puerto, int operationId, char* argum
 	{
 		if (n!=-1)
 			break;
-		else
+		else{
+			socketlocal->envia(paq);
 			n  = socketlocal->recibeTimeout(paq1,2,5000);
+		}
 	}
 	//****************************************
 

@@ -24,13 +24,13 @@ struct mensaje* Respuesta::getRequest() {
 
 void Respuesta::sendReply(char * respuesta, char * ipCliente, int puertoCliente) {
 
-	struct mensaje *m1;
-	m1 = (struct mensaje *) respuesta;
+	// struct mensaje *m1;
+	// m1 = (struct mensaje *) respuesta;
 	// cout<< "***********************************\n";
 	// cout << "Preparando respuesta: " << m1->arguments << endl;
 	// cout << "ip Cliente: " << ipCliente << endl;
 	// cout << "puerto Cliente: " << puertoCliente << endl;
-	PaqueteDatagrama paq((char*) m1, 100, ipCliente, puertoCliente);
+	PaqueteDatagrama paq(respuesta, 100, ipCliente, puertoCliente);
 	// cout << "Paquete de datos: " << paq.obtieneDatos() << endl;
 	// cout << "Paquete de ip: " << paq.obtieneDireccion() << endl;
 	socketlocal->envia(paq);

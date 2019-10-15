@@ -1,6 +1,7 @@
 #include "Solicitud.h"
 #include <iostream>
 #include <stdlib.h>
+#include <cstdlib>
 
 using namespace std;
 
@@ -20,11 +21,14 @@ int main(int argc, char*argv[]) {
 		
 		Solicitud cliente;
 
+			srand(time(NULL));
+
 		while (N--)
 		{
 			int n = rand ()%9 - 1;
+			// int n = 5;
 			total += n;
-			cout << "Envío a mi cuenta"<< n << endl;
+			cout << "Envío a mi cuenta: "<< n << endl;
 			sprintf(arreglo, "%ld", n);
 			//cout << res << endl;
 			int res2;
