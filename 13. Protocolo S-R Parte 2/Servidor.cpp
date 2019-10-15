@@ -4,6 +4,7 @@
 
 using namespace std;
 
+
 int main(int argc, char const *argv[]) {
 
   if (argc < 2)
@@ -36,7 +37,7 @@ int main(int argc, char const *argv[]) {
       memcpy(m1.IP, msj.IP, 16);
       m1.puerto = msj.puerto;
       m1.requestId = msj.requestId;
-
+      
       respuesta.sendReply((char*) m1.arguments,m1.IP, msj.puerto);
       cout << "Se envia la respuesta con los argumentos modificados." << endl;
     }

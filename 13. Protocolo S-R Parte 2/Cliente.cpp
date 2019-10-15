@@ -10,17 +10,26 @@ int main(int argc, char*argv[]) {
 	{
 		perror("USO: ./Cliente IP PUERTO N");
 	}else{
-		char arreglo[100] = "Hola soy el cliente \0";
+		
 		char *ip = argv[1];
+		int total = 0;
+		char arreglo[100];
 		int puerto = atoi(argv[2]);
 		int operacion = 0;
 		int N = atoi(argv[3]);
-
+		
 		Solicitud cliente;
 
 		while (N--)
 		{
-			printf("La  respuesta del servidor es :\n%s\n", cliente.doOperation(ip, puerto, operacion, arreglo));
+			int n = rand ()%9 - 1;
+			total += n;
+			sprintf(arreglo, "%ld", n);
+			char *res =  cliente.doOperation(ip, puerto, operacion, arreglo);
+			//if (total != atoi(res)){
+			//	cout << "Distintos valores" << endl;
+			//	exit(-1);
+							//}
 		}
 		
 	}

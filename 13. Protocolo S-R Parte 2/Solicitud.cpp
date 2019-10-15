@@ -26,6 +26,7 @@ char * Solicitud::doOperation(char* IP, int puerto, int operationId, char* argum
 	//cout << "argumentos: " << arguments << endl;
 	cout << "Argumentos: " << msj.arguments << endl;
 
+
 	//SocketDatagrama socket(puerto);
 	PaqueteDatagrama paq((char*) &msj, sizeof(msj), IP, puerto);
 

@@ -6,6 +6,7 @@
 
 using namespace std;
 
+
 class Respuesta {
     
 public:
@@ -16,6 +17,8 @@ public:
 private:
     SocketDatagrama *socketlocal;
     struct mensaje *palabras;
+    int nbd;
 };
+
 
 #endif
