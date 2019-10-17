@@ -37,7 +37,7 @@ int main(int argc, char*argv[]) {
 			memcpy(&res2, cliente.doOperation(ip, puerto, operacion, arreglo), sizeof(int));
 			cout << "Mi cuenta local: " << total << endl;
 			cout << "Mi cuenta tiene en el servidor: " << res2 << endl;
-			
+						
 			if (total != res2){
 				cout << "Distintos valores" << endl;
 				exit(-1);
