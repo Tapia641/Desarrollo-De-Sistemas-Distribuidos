@@ -9,16 +9,16 @@ int main(int argc, char*argv[]) {
 
 	if (argc < 3)
 	{
-		perror("USO: ./Cliente IP PUERTO N");
+		perror("USO: .spués de la inicial checkout-b. hacer su trabajo, a continuación, empuje hacia atrás./Cliente IP PUERTO N");
 	}else{
-		
+
 		char *ip = argv[1];
 		int total = 0;
 		char arreglo[100];
 		int puerto = atoi(argv[2]);
 		int operacion = 0;
 		int N = atoi(argv[3]);
-		
+
 		Solicitud cliente;
 
 		srand(time(NULL));
@@ -30,14 +30,18 @@ int main(int argc, char*argv[]) {
 			total += n;
 
 			cout << "--------------------------------------------"<<endl;
-			cout << "Envío a mi cuenta: "<< n << endl;
+			cout << N + 1 << " Envío a mi cuenta: "<< n << endl;
 			sprintf(arreglo, "%ld", n);
 			//cout << res << endl;
 			int res2;
 			memcpy(&res2, cliente.doOperation(ip, puerto, operacion, arreglo), sizeof(int));
 			cout << "Mi cuenta local: " << total << endl;
 			cout << "Mi cuenta tiene en el servidor: " << res2 << endl;
+<<<<<<< HEAD
 						
+=======
+
+>>>>>>> 290fb0e25b8d80dcb7f2c8b028165ea0a4631dbb
 			if (total != res2){
 				cout << "Distintos valores" << endl;
 				exit(-1);
@@ -45,7 +49,7 @@ int main(int argc, char*argv[]) {
 
 			cout<<endl;
 		}
-		
+
 	}
 
 	return 0;
