@@ -4,5 +4,5 @@ Servidor&Servidor: Servidor.cpp Respuesta.o SocketDatagrama.o PaqueteDatagrama.o
 	g++ SocketDatagrama.cpp -c
 	g++ PaqueteDatagrama.cpp -c
 	g++ SocketMulticast.cpp -c
-	g++ Servidor.cpp Respuesta.o SocketDatagrama.o PaqueteDatagrama.o -o Servidor
-	g++ Cliente.cpp Solicitud.o SocketDatagrama.o PaqueteDatagrama.o -o Cliente
+	g++ Servidor.cpp SocketMulticast.o Respuesta.o SocketDatagrama.o PaqueteDatagrama.o -o Servidor
+	g++ Cliente.cpp SocketMulticast.o Solicitud.o SocketDatagrama.o PaqueteDatagrama.o -o Cliente

@@ -4,6 +4,9 @@
 
 #include "SocketMulticast.h"
 #include "mensaje.h"
+#include <iostream>
+#include <cstring>
+
 
 using namespace std;
 
